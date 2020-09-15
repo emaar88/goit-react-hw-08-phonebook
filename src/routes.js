@@ -5,9 +5,7 @@ export default [
     path: "/",
     label: "Домашняя",
     exact: true,
-    component: lazy(() =>
-      import("./views/HomeView" /* webpackChunkName: "homeview" */)
-    ),
+    component: lazy(() => import("./views/HomeView")),
     private: false,
     restricted: false,
   },
@@ -15,9 +13,7 @@ export default [
     path: "/register",
     label: "Регистрация",
     exact: true,
-    component: lazy(() =>
-      import("./views/RegisterView" /* webpackChunkName: "registerview" */)
-    ),
+    component: lazy(() => import("./views/RegisterView")),
     private: false,
     restricted: true,
   },
@@ -25,9 +21,7 @@ export default [
     path: "/login",
     label: "Логинизация",
     exact: true,
-    component: lazy(() =>
-      import("./views/LoginView" /* webpackChunkName: "loginview" */)
-    ),
+    component: lazy(() => import("./views/LoginView")),
     private: false,
     restricted: true,
   },
@@ -35,9 +29,7 @@ export default [
     path: "/contacts",
     label: "Домашка",
     exact: true,
-    component: lazy(() =>
-      import("./views/ContacterView" /* webpackChunkName: "contacterview" */)
-    ),
+    component: lazy(() => import("./views/ContacterView")),
     private: true,
     restricted: false,
   },
