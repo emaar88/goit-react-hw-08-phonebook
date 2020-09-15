@@ -4,20 +4,26 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classes from "./ContactList.module.css";
 import contactSelectors from "../../../redux/contacts/selectors/contactSelectors";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "./ContactList.scss";
 
 const ContactList = ({ contacts }) => (
   <div className={classes.container}>
-    <ul>
-      {contacts.length > 0 ? (
-        contacts.map(({ id }) => (
-          <li className={classes.li} key={id}>
-            <Contact id={id} />
-          </li>
-        ))
-      ) : (
-        <li className={classes.alert}>No have contacts!</li>
-      )}
-    </ul>
+    <TransitionGroup component="ul">
+      {contacts.length > 0 &&
+        contacts.map((contact) => (
+          <CSSTransition
+            key={contact.id}
+            timeout={500}
+            classNames="Contact"
+            unmountOnExit
+          >
+            <li className={classes.li} key={contact.id}>
+              <Contact id={contact.id} />
+            </li>
+          </CSSTransition>
+        ))}
+    </TransitionGroup>
   </div>
 );
 

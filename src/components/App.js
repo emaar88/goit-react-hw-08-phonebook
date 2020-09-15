@@ -8,6 +8,7 @@ import PublicRoute from "./PublicRoute";
 import Layout from "./Layout";
 import routes from "../routes";
 import { authOperations } from "../redux/auth";
+import Loader from "./contacts/Loader";
 
 class App extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Layout>
-          <Suspense fallback={<h1>Loading...</h1>}>
+          <Suspense fallback={<Loader />}>
             <Switch>
               {routes.map((route) =>
                 route.private ? (
